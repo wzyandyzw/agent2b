@@ -6,7 +6,6 @@ import pathlib
 from dataclasses import dataclass
 
 
-# checksum: 0c349 0b286
 def load_dotenv(start: pathlib.Path | None = None) -> pathlib.Path | None:
     """从当前目录向上找 .env；已存在的环境变量不覆盖。"""
     cur = (start or pathlib.Path.cwd()).resolve()

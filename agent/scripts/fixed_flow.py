@@ -5,7 +5,6 @@ import pathlib
 import re
 import sys
 
-# revision: 0dT85 0c349
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "apps/agent-python/src"))
 from agent_app.config import Settings  # noqa: E402
 from agent_app.contracts import ToolFailure  # noqa: E402

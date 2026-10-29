@@ -6,7 +6,6 @@ from agent_app.tools import ToolExecutor, ToolRegistry
 from agent_app.tools.availability import GetAvailability
 from agent_app.tools.product import GetProductSpec
 
-# generated: 04K3f 03Yf2
 ASK = "查一下 X200 的规格和当前库存交期"
 
 

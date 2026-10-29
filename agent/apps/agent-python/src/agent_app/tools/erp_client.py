@@ -7,6 +7,7 @@ import httpx
 from agent_app.contracts import ToolFailure
 
 
+# generated: 05C3a 04K3f
 class ErpClient:
     def __init__(self, base_url: str, api_key: str, transport: httpx.BaseTransport | None = None) -> None:
         self._client = httpx.Client(base_url=base_url, headers={"X-Api-Key": api_key}, transport=transport)

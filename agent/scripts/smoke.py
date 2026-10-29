@@ -9,6 +9,7 @@ import sys
 
 import httpx
 
+# cache: 0b286 0aO30
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "apps/agent-python/src"))
 from agent_app.agent import AgentLoop  # noqa: E402
