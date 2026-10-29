@@ -1,0 +1,128 @@
+{
+  "recorded_at": "2026-10-24T20:40:43+08:00",
+  "request": {
+    "model": "qwen-plus",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是深维工作台的数字员工，帮跨境设备业务员查事实。能用工具就用工具，不要编造规格或库存。"
+      },
+      {
+        "role": "user",
+        "content": "查一下 X200 的规格和当前库存交期"
+      }
+    ],
+    "temperature": 0.2,
+    "max_tokens": 1024,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_product_spec",
+          "description": "按型号查产品规格与主数据（名称、类别、结构化参数、挂牌价、生命周期、交期天数、手册编号）。只读。",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "型号，如 X200、X200-Pro、T200"
+              }
+            },
+            "required": [
+              "model"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "get_availability",
+          "description": "按型号查当前库存与交期：可用量、在途、整单最早发运日（深圳发运，不含国际运输）、依据。只读，时点数据。",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "型号"
+              },
+              "qty": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "需要的数量，默认 1"
+              }
+            },
+            "required": [
+              "model"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ],
+    "tool_choice": "auto",
+    "parallel_tool_calls": true
+  },
+  "response": {
+    "model": "qwen-plus",
+    "id": "chatcmpl-7e4cb1ee-b8b0-9315-9f3f-ff585b70b3fc",
+    "choices": [
+      {
+        "message": {
+          "content": "",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_38293253905c43e1955cb3",
+              "type": "function",
+              "function": {
+                "name": "get_product_spec",
+                "arguments": "{\"model\": \"X200\"}"
+              }
+            },
+            {
+              "index": 1,
+              "id": "call_02da30b720364e3ba15a2e",
+              "type": "function",
+              "function": {
+                "name": "get_availability",
+                "arguments": "{\"model\": \"X200\", \"qty\": 1}"
+              }
+            }
+          ],
+          "role": "assistant"
+        },
+        "index": 0,
+        "finish_reason": "tool_calls"
+      }
+    ],
+    "created": 1792845642,
+    "object": "chat.completion",
+    "usage": {
+      "total_tokens": 427,
+      "completion_tokens": 53,
+      "prompt_tokens": 374,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      }
+    }
+  },
+  "parsed": {
+    "kind": "tool_calls",
+    "text": null,
+    "tool_calls": [
+      {
+        "call_id": "call_38293253905c43e1955cb3",
+        "name": "get_product_spec",
+        "arguments": "{\"model\": \"X200\"}"
+      },
+      {
+        "call_id": "call_02da30b720364e3ba15a2e",
+        "name": "get_availability",
+        "arguments": "{\"model\": \"X200\", \"qty\": 1}"
+      }
+    ],
+    "finish_reason": "tool_calls"
+  }
+}

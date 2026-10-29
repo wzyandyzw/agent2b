@@ -1,0 +1,68 @@
+{
+  "recorded_at": "2026-10-24T20:39:19+08:00",
+  "erp_version": "0.2.0",
+  "erp_now": "2026-09-20T10:00:00+08:00",
+  "scenario": "base",
+  "request": {
+    "method": "GET",
+    "path": "/v1/products/T200",
+    "query": {}
+  },
+  "status": 200,
+  "content_type": "application/json",
+  "body": {
+    "sku": "T200",
+    "name_cn": "T200 循环温控单元",
+    "name_en": "T200 temperature control unit",
+    "category": {
+      "code": "T",
+      "name_cn": "循环温控单元",
+      "name_en": "Recirculating temperature control unit"
+    },
+    "uom": "EA",
+    "list_price": {
+      "amount": 6800.0,
+      "currency": "CNY"
+    },
+    "lifecycle": "active",
+    "lead_time_days": 15,
+    "doc_ref": "D05/D22",
+    "hs_code": "8418.69",
+    "country_of_origin": "CN",
+    "specs": {
+      "power_w": 1400.0,
+      "cooling_capacity_w": 1100.0,
+      "max_flow_lpm": null,
+      "max_pressure_bar": null,
+      "max_head_m": null,
+      "range_bar_min": null,
+      "range_bar_max": null,
+      "range_m_min": null,
+      "range_m_max": null,
+      "setpoint_min_c": 5.0,
+      "setpoint_max_c": 40.0,
+      "stability_c": 0.1,
+      "tank_l": 5.0,
+      "operating_temp_min_c": null,
+      "operating_temp_max_c": null,
+      "accuracy_fs_pct": null,
+      "output": null,
+      "ip_rating": null,
+      "high_temp_hours": null,
+      "nominal_size_dn": null,
+      "air_supply_bar_min": null,
+      "air_supply_bar_max": null,
+      "insertion_mm": null,
+      "sensor_type": null,
+      "wiring": null,
+      "connection": "G1/2",
+      "supply_voltage": "220 V AC",
+      "weight_kg": 22.0
+    },
+    "key_spec": "1400 W；制冷量 1100 W；设定 5–40 °C；稳定度 0.1 °C；水箱 5 L",
+    "image_url": "/static/sku/t200-main.png",
+    "spec_source": "ERP 商品主数据；详细参数与运行边界以产品手册为准（doc_ref）",
+    "created_at": "2026-06-01T09:00:00+08:00",
+    "updated_at": "2026-06-01T09:00:00+08:00"
+  }
+}

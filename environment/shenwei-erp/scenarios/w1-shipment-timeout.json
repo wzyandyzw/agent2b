@@ -1,0 +1,8 @@
+{
+  "case_id": "w1-shipment-timeout",
+  "now": "2026-09-20T10:00:00+08:00",
+  "base": true,
+  "faults": [
+    {"target": "GET /v1/shipments/*", "mode": "timeout", "times": 2, "delay_s": 0.2}
+  ]
+}

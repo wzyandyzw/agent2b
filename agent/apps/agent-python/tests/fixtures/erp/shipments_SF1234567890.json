@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-24T20:39:19+08:00",
+  "erp_version": "0.2.0",
+  "erp_now": "2026-09-20T10:00:00+08:00",
+  "scenario": "base",
+  "request": {
+    "method": "GET",
+    "path": "/v1/shipments/SF1234567890",
+    "query": {}
+  },
+  "status": 200,
+  "content_type": "application/json",
+  "body": {
+    "tracking_no": "SF1234567890",
+    "order_id": "ORD-10086",
+    "carrier": {
+      "code": "DHL",
+      "name": "DHL Express"
+    },
+    "mode": "courier",
+    "ship_date": "2026-09-12",
+    "eta": null,
+    "status_code": "arrived",
+    "status_text": "到达目的地",
+    "signed": false,
+    "signed_at": null,
+    "last_event_at": "2026-09-17T12:04:00+08:00",
+    "events": [
+      {
+        "at": "2026-09-12T18:20:00+08:00",
+        "status_code": "picked_up",
+        "status_text": "已揽收",
+        "location": "深圳仓",
+        "description": ""
+      },
+      {
+        "at": "2026-09-14T08:41:00+08:00",
+        "status_code": "in_transit",
+        "status_text": "运输中",
+        "location": "香港机场 → Jakarta",
+        "description": ""
+      },
+      {
+        "at": "2026-09-17T12:04:00+08:00",
+        "status_code": "arrived",
+        "status_text": "到达目的地",
+        "location": "Jakarta Soekarno-Hatta",
+        "description": "到达目的地机场"
+      }
+    ],
+    "created_at": "2026-09-12T18:20:00+08:00",
+    "updated_at": "2026-09-17T12:04:00+08:00"
+  }
+}

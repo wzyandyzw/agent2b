@@ -1,0 +1,11 @@
+/**/.venv/
+/**/.venv-*/
+/**/__pycache__/
+/**/.pytest_cache/
+agent/.env
+agent/runs/
+agent/artifacts/
+/runs/
+environment/shenwei-erp/erp.db
+environment/shenwei-erp/*.db-shm
+environment/shenwei-erp/*.db-wal

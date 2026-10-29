@@ -1,0 +1,8 @@
+{
+  "case_id": "demo-ord-10086",
+  "now": "2026-09-20T10:00:00+08:00",
+  "base": true,
+  "events": [
+    {"id": "EV-0001", "tracking_no": "SF1234567890", "occurred_at": "2026-09-20T15:30:00+08:00", "status_code": "customs", "location": "Jakarta"}
+  ]
+}

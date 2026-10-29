@@ -1,0 +1,22 @@
+[project]
+name = "shenwei-erp"
+version = "0.2.0"
+description = "深维设备模拟 ERP：商品与规格、库存交期、客户与信用、发票账龄、订单物流、报价台账、工单、产品资料（教学虚构）"
+requires-python = ">=3.12"
+dependencies = ["fastapi>=0.115", "uvicorn>=0.30", "httpx>=0.27", "pydantic>=2.7", "shenwei-mockkit"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv.sources]
+shenwei-mockkit = { path = "../shenwei-mockkit", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["shenwei_erp"]

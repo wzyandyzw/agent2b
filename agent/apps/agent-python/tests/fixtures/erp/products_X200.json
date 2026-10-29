@@ -1,0 +1,68 @@
+{
+  "recorded_at": "2026-10-24T20:39:19+08:00",
+  "erp_version": "0.2.0",
+  "erp_now": "2026-09-20T10:00:00+08:00",
+  "scenario": "base",
+  "request": {
+    "method": "GET",
+    "path": "/v1/products/X200",
+    "query": {}
+  },
+  "status": 200,
+  "content_type": "application/json",
+  "body": {
+    "sku": "X200",
+    "name_cn": "X200 离心输送泵",
+    "name_en": "X200 transfer pump",
+    "category": {
+      "code": "X",
+      "name_cn": "离心输送泵",
+      "name_en": "Centrifugal transfer pump"
+    },
+    "uom": "EA",
+    "list_price": {
+      "amount": 2380.0,
+      "currency": "CNY"
+    },
+    "lifecycle": "active",
+    "lead_time_days": 7,
+    "doc_ref": "D02/D22",
+    "hs_code": "8413.70",
+    "country_of_origin": "CN",
+    "specs": {
+      "power_w": 260.0,
+      "cooling_capacity_w": null,
+      "max_flow_lpm": 5.0,
+      "max_pressure_bar": 2.0,
+      "max_head_m": null,
+      "range_bar_min": null,
+      "range_bar_max": null,
+      "range_m_min": null,
+      "range_m_max": null,
+      "setpoint_min_c": null,
+      "setpoint_max_c": null,
+      "stability_c": null,
+      "tank_l": null,
+      "operating_temp_min_c": null,
+      "operating_temp_max_c": null,
+      "accuracy_fs_pct": null,
+      "output": null,
+      "ip_rating": "IP54",
+      "high_temp_hours": null,
+      "nominal_size_dn": null,
+      "air_supply_bar_min": null,
+      "air_supply_bar_max": null,
+      "insertion_mm": null,
+      "sensor_type": null,
+      "wiring": null,
+      "connection": "G3/8",
+      "supply_voltage": "220 V AC",
+      "weight_kg": 6.8
+    },
+    "key_spec": "260 W；最大流量 5 L/min；最大压力 2 bar；IP54",
+    "image_url": "/static/sku/x200-main.png",
+    "spec_source": "ERP 商品主数据；详细参数与运行边界以产品手册为准（doc_ref）",
+    "created_at": "2026-06-01T09:00:00+08:00",
+    "updated_at": "2026-06-01T09:00:00+08:00"
+  }
+}

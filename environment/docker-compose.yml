@@ -1,0 +1,29 @@
+# S6 W1 业务环境：只有模拟 ERP shenwei-erp（9100）。SCRM、知识服务从用到它们的那一周起另发。
+# 启动：docker compose up -d      接口文档：http://localhost:9100/docs
+name: s6-env
+services:
+  shenwei-erp:
+    build:
+      context: .
+      dockerfile: shenwei-erp/Dockerfile
+    image: shenwei-erp:0.2.0
+    ports:
+      - "9100:9100"
+    environment:
+      ERP_ADMIN_TOKEN: local-admin
+      # 事件回调学员系统的地址与签名密钥；学员系统跑在宿主机上时用 host.docker.internal
+      ERP_WEBHOOK_URL: http://host.docker.internal:8000/api/events/erp
+      ERP_WEBHOOK_SECRET: whsec_local
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - erp-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:9100/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+
+volumes:
+  erp-data:
