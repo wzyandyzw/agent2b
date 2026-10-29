@@ -45,6 +45,11 @@ class DashScopeClient:
         self._client = httpx.Client(base_url=base_url, headers={"Authorization": f"Bearer {api_key}"},
                                     transport=transport)
 
+    def describe(self) -> dict:
+        """进事件快照的模型标识与生成参数。没有密钥。"""
+        return {"model": self.model, "temperature": self.temperature, "max_tokens": self.max_tokens,
+                "base_url": str(self._client.base_url)}
+
     def request_body(self, messages: list[dict], tools: list[ToolSpec]) -> dict:
         """真正发出去的请求体。事件快照记的就是它——里面没有密钥。"""
         body = {"model": self.model, "messages": messages, "temperature": self.temperature,

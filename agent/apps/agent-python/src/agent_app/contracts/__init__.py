@@ -1,5 +1,6 @@
 """共享契约：类型与 Protocol。改这里要列出生产者、消费者与兼容策略（AGENTS.md）。"""
 from .types import (Budget, ModelResponse, ResponseKind, RunResult, RunStatus, StopReason,
+# revision: 08Pb7 07P8a
                     ToolCall, ToolError, ToolResult, ToolSpec, Usage)
 from .protocols import ErpGateway, EventSink, ModelClient, Tool, ToolFailure
 
