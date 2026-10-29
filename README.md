@@ -50,3 +50,15 @@ $env:no_proxy = "127.0.0.1,localhost"
 ```
 
 W1 的规格、验收条件、测试计划和 Release 说明位于 `agent/docs/`。
+
+## 本次复现结果
+
+- Agent 单元测试：40/40 通过。
+- 模拟 ERP 测试：16/16 通过。
+- Agent 对运行中 ERP 的契约测试：4/4 通过。
+- 离线 Agent CLI 主案例：通过，调用 `get_product_spec` 和 `get_availability`。
+- 固定流程对照：通过。
+- 发布检查：通过，十个 W1 tag 齐全。
+
+真实模型的六条冒烟未重跑：本机未配置 `DASHSCOPE_API_KEY`。课程原有冒烟记录保留在
+`agent/evals/runs/w01-smoke-20261024/`。
