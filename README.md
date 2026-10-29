@@ -58,8 +58,17 @@ uv run --project agent/apps/agent-python agent-cli chat "帮我检查本周有�
 
 - `agent/`：Agent 代码、测试、知识库和原课程文档。
 - `environment/`：完整模拟 ERP 环境、接口规范和故障注入。
-- `product/`：汇甬业务调研和产品方案。
+- `docs/`：PRD、SDD、TDD 和 Release 交付记录。
+- `product/`：汇甬业务调研和早期产品分析。
 - `s6-env-w1.zip`、`shenwei-agent-product-W1-all-tags.zip`：原始交付包，保持不变。
+
+## 研发流程
+
+```text
+PRD → SDD → TDD → 集成验收 → Release → Git tag
+```
+
+入口见 [研发流程](./docs/README.md)。
 
 ## 验证
 

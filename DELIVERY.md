@@ -4,6 +4,8 @@
 
 单 Agent CLI Demo，支持自然语言、多工具调用、ERP/客户/订单/应收/产品/物流/知识检索、报告输出、会话续跑和事件回放。
 
+研发过程文档采用 PRD → SDD → TDD → Release 的追踪结构，详见 [docs/README.md](./docs/README.md)。
+
 ## 快速验收
 
 ```powershell
