@@ -1,0 +1,6 @@
+{"id": "S01", "kind": "正常查两类事实", "input": "查一下 X200 的规格和当前库存交期", "expect": {"must_call": ["get_product_spec", "get_availability"], "facts": ["260", "5 L/min", "2026-09-23"], "status": "completed"}}
+{"id": "S02", "kind": "只问规格", "input": "X200-Pro 的规格是什么", "expect": {"must_call": ["get_product_spec"], "facts": ["320", "6.5"], "status": "completed", "note": "查了库存不算错，记录"}}
+{"id": "S03", "kind": "缺型号", "input": "帮我查一下规格和库存交期", "expect": {"must_not_call": ["get_product_spec", "get_availability"], "status": "completed", "behaviour": "追问型号"}}
+{"id": "S04", "kind": "未知型号", "input": "查一下 X999 的规格", "expect": {"must_call": ["get_product_spec"], "tool_outcome": "not_found", "behaviour": "说不存在，不编规格"}}
+{"id": "S05", "kind": "库存查询失败", "input": "查一下 T200 的规格和当前库存交期", "seed": {"fault": {"target": "GET /v1/inventory/*", "mode": "timeout", "times": 1, "delay_s": 0.3}}, "expect": {"must_call": ["get_product_spec", "get_availability"], "tool_outcome": "timeout", "behaviour": "规格有、交期说无法确认，不说库存为零"}}
+{"id": "S06", "kind": "后续追问（继续会话）", "input": "那它现在的库存交期呢", "resume_from": "S02", "expect": {"must_call": ["get_availability"], "facts": ["X200-Pro"], "behaviour": "从历史里取型号，不追问"}}

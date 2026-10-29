@@ -1,0 +1,20 @@
+{
+  "model": "qwen-plus",
+  "budget": {
+    "max_steps": 6,
+    "model_timeout_s": 60.0,
+    "tool_timeout_s": 5.0,
+    "wall_clock_s": 120.0,
+    "tool_retries": 0
+  },
+  "erp": "http://localhost:9100",
+  "erp_health": {
+    "status": "ok",
+    "service": "shenwei-erp",
+    "version": "0.2.0",
+    "api_version": "v1",
+    "now": "2026-09-20T10:00:00+08:00",
+    "scenario": "base"
+  },
+  "ran_at": "2026-10-24T20:50:00+08:00"
+}

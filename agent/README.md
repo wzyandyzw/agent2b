@@ -11,8 +11,12 @@ cp .env.example .env            # 填 DASHSCOPE_API_KEY；离线用法不需要
 cd apps/agent-python
 uv sync                         # Python 3.12
 uv run pytest tests/unit -q     # 离线：ScriptedModel + FakeERP
-uv run agent-cli --help
+uv run agent-cli chat "查一下 X200 的规格和当前库存交期"
+uv run agent-cli chat --scripted "查一下 X200 的规格和当前库存交期"   # 没有模型额度也能跑
+uv run agent-cli replay <conversation_id>
 ```
+
+完整命令、配置与已知限制见 `docs/releases/w1.md`；证据在 `docs/weeks/w01/`。
 
 模拟 ERP 在 `S6/环境/shenwei-erp`（端口 9100），`uv run python -m shenwei_erp` 起。
 
