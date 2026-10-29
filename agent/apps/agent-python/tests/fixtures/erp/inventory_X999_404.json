@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-24T20:39:19+08:00",
+  "erp_version": "0.2.0",
+  "erp_now": "2026-09-20T10:00:00+08:00",
+  "scenario": "base",
+  "request": {
+    "method": "GET",
+    "path": "/v1/inventory/X999",
+    "query": {
+      "qty": 1
+    }
+  },
+  "status": 404,
+  "content_type": "application/problem+json",
+  "body": {
+    "type": "https://docs.shenwei.example/problems/product_not_found",
+    "title": "不存在",
+    "status": 404,
+    "detail": "型号 X999 不存在",
+    "instance": "urn:request:01M5PYRDS0DQ27Y96EQX71VFKT",
+    "code": "product_not_found"
+  }
+}

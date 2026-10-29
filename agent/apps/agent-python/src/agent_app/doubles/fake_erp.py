@@ -1,6 +1,8 @@
 """FakeERP：固定数据 + 调用计数 + 故障开关。实现 ErpGateway，和真实 ErpClient 可互换。"""
 from __future__ import annotations
 
+import json
+import pathlib
 from collections import Counter
 from dataclasses import dataclass, field
 
@@ -52,6 +54,25 @@ class FakeERP:
 
     def get_order(self, order_id: str, *, timeout_s: float) -> dict:
         return self._lookup("get_order", self.orders, order_id, "order_not_found", "订单")
+
+    @classmethod
+    def from_fixtures(cls, fixtures_dir: str | pathlib.Path) -> "FakeERP":
+        """读 scripts/record_fixtures.py 录下的 *.json；只装 200 的，404 样本留给契约测试用。"""
+        erp = cls()
+        for f in sorted(pathlib.Path(fixtures_dir).glob("*.json")):
+            rec = json.loads(f.read_text(encoding="utf-8"))
+            if rec["status"] != 200:
+                continue
+            body, path = rec["body"], rec["request"]["path"]
+            if path.startswith("/v1/products/"):
+                erp.products[body["sku"]] = body
+            elif path.startswith("/v1/inventory/"):
+                erp.inventory.setdefault(body["sku"], body)  # 同型号多份只留第一份；qty 由 get_inventory 覆盖
+            elif path.startswith("/v1/shipments/"):
+                erp.shipments[body["tracking_no"]] = body
+            elif path.startswith("/v1/orders/"):
+                erp.orders[body["id"]] = body
+        return erp
 
     @staticmethod
     def timeout(method: str = "get_inventory") -> ToolFailure:

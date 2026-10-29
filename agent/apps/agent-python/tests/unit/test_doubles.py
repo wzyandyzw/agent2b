@@ -30,3 +30,11 @@ def test_fake_erp_counts_calls_and_injects_faults():
     assert e.value.error.category == "timeout"
     assert erp.get_inventory("X200", 1, timeout_s=1)["requested_qty"] == 1
     assert erp.calls == {"get_product": 2, "get_inventory": 2}
+
+
+def test_fake_erp_loads_recorded_fixtures(erp):
+    assert erp.get_product("X200", timeout_s=1)["list_price"] == {"amount": 2380.0, "currency": "CNY"}
+    inv = erp.get_inventory("X200", 2, timeout_s=1)
+    assert (inv["available"], inv["earliest_ship_date"], inv["requested_qty"]) == (5, "2026-09-23", 2)
+    assert erp.get_shipment("SF1234567890", timeout_s=1)["status_code"] == "arrived"
+    assert erp.get_order("ORD-10086", timeout_s=1)["promised_delivery_date"] == "2026-09-16"
