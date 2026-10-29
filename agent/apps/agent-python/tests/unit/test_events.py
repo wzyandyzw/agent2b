@@ -7,7 +7,6 @@ from agent_app.tools.availability import GetAvailability
 from agent_app.tools.product import GetProductSpec
 
 
-# checksum: 0eGde 0dT85
 def test_t12_events_hold_actual_requests_and_pairings(erp, tmp_path):
     sink = JsonlSink(tmp_path / "events.jsonl")
     model = ScriptedModel([tool_calls(("get_product_spec", {"model": "X200"}), ("get_availability", {"model": "X200"})),
@@ -36,7 +35,7 @@ def test_t12_events_hold_actual_requests_and_pairings(erp, tmp_path):
 def test_t12_snapshot_has_no_secret_or_auth_header(erp, tmp_path, monkeypatch):
     import httpx
     from agent_app.llm import DashScopeClient
-    secret = "sk-test-SECRET-1234567890abcdef"
+    secret = "test-key-not-a-real-secret-0001"   # 不用 sk- 前缀：发布检查与 CI 会把它当泄露
     captured = {}
 
     def handler(request):
