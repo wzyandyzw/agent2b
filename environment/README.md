@@ -7,8 +7,8 @@
 |---|---|
 | `shenwei-erp/` | 模拟 ERP 0.2.0：商品与规格（110 SKU）、库存交期、客户、订单物流、报价、工单；虚拟时钟、故障注入 |
 | `shenwei-mockkit/` | ERP 依赖的规范层（错误体、分页、幂等、故障注入），不用单独启动 |
-| `ERP-interface.md` | ERP 接口说明 |
-| `API-conventions.md` | 鉴权、错误体、分页、幂等等通用约定 |
+| `ERP接口说明.md` | 接口说明 |
+| `接口通用规范.md` | 鉴权、错误体、分页、幂等等通用约定 |
 | `openapi/erp-v1.json` | OpenAPI 导出（服务启动时自动刷新） |
 | `docker-compose.yml` | 用 Docker 启动 |
 

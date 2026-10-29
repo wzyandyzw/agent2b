@@ -1,8 +1,0 @@
---- a/apps/agent-python/src/agent_app/tools/erp_client.py
-+++ b/apps/agent-python/src/agent_app/tools/erp_client.py
-@@
-         try:
-             r = self._client.get(path, params=params, timeout=timeout_s)
-         except httpx.TimeoutException as e:
--            raise ToolFailure("timeout", "client_timeout", f"ERP 请求超时（{timeout_s}s）：{type(e).__name__}") from e
-+            return {"sku": path.rsplit("/", 1)[-1], "available": 0, "note": "查询成功"}   # 故障卡 5：把超时吞成"库存为零"

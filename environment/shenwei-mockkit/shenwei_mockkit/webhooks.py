@@ -105,7 +105,7 @@ class Events:
         headers = {"Content-Type": "application/json", "X-Shenwei-Event-Id": e["id"],
                    "X-Shenwei-Signature": sign(self.store.get("webhook_secret", DEFAULT_SECRET), body)}
         try:
-            async with httpx.AsyncClient(timeout=5, trust_env=False) as cl:
+            async with httpx.AsyncClient(timeout=5) as cl:
                 r = await cl.post(url, content=body, headers=headers)
             ok = 200 <= r.status_code < 300
             return {"at": self.store.now_iso(), "status": r.status_code, "result": "delivered" if ok else "failed"}
